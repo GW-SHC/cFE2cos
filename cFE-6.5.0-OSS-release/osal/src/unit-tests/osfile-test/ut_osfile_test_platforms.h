@@ -75,18 +75,6 @@ if ((OS_FDGetInfo(g_fDescs[0], &fdProps) != OS_FS_SUCCESS) ||  \
 #endif  /* OSP_ARINC653 */
 /*--------------------------------------------*/
 
-#ifdef COMPOSITE_OS
-
-/* Copying VXWORKS defines. */
-#define UT_OS_OUTPUT_TO_FILE_SUCCESS_COND_MACRO \
-    strncmp(&g_readBuff[1], cmd, strlen(cmd)) == 0
-
-#define UT_OS_COMPARE_COND_FOR_NOMINAL_GETFDINFO_MACRO              \
-if ((OS_FDGetInfo(g_fDescs[0], &fdProps) != OS_FS_SUCCESS) ||       \
-    (fdProps.IsValid != TRUE) ||                                    \
-    (strncmp(fdProps.Path, g_fNames[0], strlen(g_fNames[0])) != 0))
-
-#endif
 /*--------------------------------------------------------------------------------*
 ** Data types
 **--------------------------------------------------------------------------------*/
