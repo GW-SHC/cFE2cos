@@ -56,8 +56,9 @@ void Composite_UT_osnetwork(void)
     OS_API_Init();
 
     UT_CAT_HEADER("network");
-    UT_os_networkgetid_test();
-    UT_os_networkgethostname_test();
+    // FIXME: Composite has no networking right now...
+    // UT_os_networkgetid_test();
+    // UT_os_networkgethostname_test();
     UT_CAT_END;
 
     UT_os_teardown("ut_osnetwork");
