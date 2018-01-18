@@ -161,7 +161,7 @@ if args.first:
     sp.check_call("make init" + OUT, shell=True, cwd=COMPOSITE_MAKE_ROOT)
 
 if args.unit_tests:
-    sp.check_call("CPPFLAGS=\"-DUNIT_TESTS\" make" + OUT, shell=True, cwd=COMPOSITE_MAKE_ROOT)
+    sp.call("CPPFLAGS=\"-DUNIT_TESTS\" make" + OUT, shell=True, cwd=COMPOSITE_MAKE_ROOT)
 else:
     sp.check_call("make" + OUT, shell=True, cwd=COMPOSITE_MAKE_ROOT)
 sp.check_call("make cp" + OUT, shell=True, cwd=COMPOSITE_MAKE_ROOT)
