@@ -73,6 +73,8 @@ CFE_HEADERS_TO_COPY = [
     "build/cpu1/inc/cfe_platform_cfg.h",
     "build/cpu1/inc/osconfig.h",
     "build/mission_inc/cfe_mission_cfg.h",
+    "cfe/fsw/cfe-core/src/inc/cfe_tbl.h",
+    "cfe/fsw/cfe-core/src/inc/cfe_time.h",
     "cfe/fsw/cfe-core/src/inc/cfe_es.h",
     "cfe/fsw/cfe-core/src/inc/cfe_evs.h",
     "osal/src/os/inc/*",
