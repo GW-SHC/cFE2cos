@@ -70,7 +70,7 @@ test support.\
         run)
             echo "Initializing cFE VM..."
             cd ~/cFE2cos/composite/transfer/
-            ./qemu.sh cFE_booter.sh
+            ./qemu.sh llboot_cFE.sh
             cd $start_dir
             return 0
             ;;
