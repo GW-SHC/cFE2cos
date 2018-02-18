@@ -73,10 +73,7 @@ CFE_HEADERS_TO_COPY = [
     "build/cpu1/inc/cfe_platform_cfg.h",
     "build/cpu1/inc/osconfig.h",
     "build/mission_inc/cfe_mission_cfg.h",
-    "cfe/fsw/cfe-core/src/inc/cfe_tbl.h",
-    "cfe/fsw/cfe-core/src/inc/cfe_time.h",
-    "cfe/fsw/cfe-core/src/inc/cfe_es.h",
-    "cfe/fsw/cfe-core/src/inc/cfe_evs.h",
+    "cfe/fsw/cfe-core/src/inc/*",
     "osal/src/os/inc/*",
     "psp/fsw/pc-composite/inc/*",
     "psp/fsw/inc/*"
@@ -117,7 +114,7 @@ if not os.path.exists(COMPOSITE_CFE_HEADER_DESTINATION):
     print "cFE header destination folder not found. Creating it now."
     os.makedirs(COMPOSITE_CFE_HEADER_DESTINATION)
 for header in CFE_HEADERS_TO_COPY:
-    sp.check_call("cp " + CFE_DIR + header + " " + COMPOSITE_CFE_HEADER_DESTINATION, shell=True)
+    sp.check_call("cp -r " + CFE_DIR + header + " " + COMPOSITE_CFE_HEADER_DESTINATION, shell=True)
 
 if args.unit_tests:
     print "=== Building unit tests ==="
@@ -166,7 +163,6 @@ if args.unit_tests:
     sp.call("CPPFLAGS=\"-DUNIT_TESTS\" make" + OUT, shell=True, cwd=COMPOSITE_MAKE_ROOT)
 else:
     sp.check_call("make" + OUT, shell=True, cwd=COMPOSITE_MAKE_ROOT)
-sp.check_call("make cp" + OUT, shell=True, cwd=COMPOSITE_MAKE_ROOT)
 
 sp.check_call("tar cf cFEfs.tar --exclude=\"cf/apps/composite_cFE.o\" cf/" + OUT, shell=True, cwd=CFE_OBJECT_LOCATION)
 sp.check_call("mv cFEfs.tar ../../../../cFEfs.tar" + OUT, shell=True, cwd=CFE_OBJECT_LOCATION)
