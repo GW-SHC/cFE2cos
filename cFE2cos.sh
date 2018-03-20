@@ -48,10 +48,10 @@ test support.\
             cd ~/cFE2cos/composite/src/extern/cFE
             source ./setvars.sh
 
-            cd ~/cFE2cos/composite
+            cd ~/cFE2cos/composite/src
             make
             if [ $? -ne 0 ]; then
-                errcho 'cFE2cos: make.py failed!\n'
+                errcho 'cFE2cos: composite make failed!\n'
                 cd $start_dir
                 return 2
             fi
