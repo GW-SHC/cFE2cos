@@ -21,10 +21,10 @@ test support.\
 
     case "$1" in
         init)
-            cd ~/cFE2cos/cFE-6.5.0-OSS-release
+            cd ~/cFE2cos/composite/src/extern/cFE
             source ./setvars.sh
 
-            cd ~/cFE2cos/cFE-6.5.0-OSS-release/build/cpu1
+            cd ~/cFE2cos/composite/src/extern/cFE/build/cpu1
             make config
             if [ $? -ne 0 ]; then
                 errcho 'cFE2cos: Could not "make config" the cFE!\n'
@@ -45,18 +45,11 @@ test support.\
             ;;
 
         build)
-            cd ~/cFE2cos/cFE-6.5.0-OSS-release
+            cd ~/cFE2cos/composite/src/extern/cFE
             source ./setvars.sh
 
-            cd ~/cFE2cos/build
-            if [ "$UNIT_TEST" == true ]; then
-                ./make.py -u
-                cd $start_dir
-                return 0
-            else
-                ./make.py
-            fi
-
+            cd ~/cFE2cos/composite
+            make
             if [ $? -ne 0 ]; then
                 errcho 'cFE2cos: make.py failed!\n'
                 cd $start_dir
