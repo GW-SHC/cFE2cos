@@ -7,6 +7,7 @@ Vagrant.configure(2) do |config|
         v.cpus = 3
 
         v.customize ["modifyvm", :id, "--paravirtprovider", "kvm"]
+        v.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
     end
 
     # Disable the default syncing

@@ -21,9 +21,6 @@ test support.\
 
     case "$1" in
         init)
-            cd ~/cFE2cos/
-            git submodule update --init --recursive
-
             cd ~/cFE2cos/composite/src/extern/cFE
             source ./setvars.sh
 
